@@ -1,2 +1,2 @@
-const p = document.querySelector("#paragraph");
-p && (p.textContent = "Hello");
+// const p = document.querySelector("#paragraph");
+// p && (p.textContent = "Hello");

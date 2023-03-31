@@ -1,11 +1,15 @@
 ---
+import Button from "../components/common/Button.vue";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Home">
-	<p id="paragraph" class="text-xl text-cyan-600">Test index</p>
+	<section class="mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8">
+		<Button class="mr-3" />
+		<Button>Hello</Button>
+	</section>
 </MainLayout>
 
 <script>
-	import "../js/utils.js"
+	import "../js/utils.js";
 </script>

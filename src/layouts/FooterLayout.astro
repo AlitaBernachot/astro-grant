@@ -1,0 +1,15 @@
+---
+import Link from "../components/common/Link.vue";
+---
+
+<footer>
+    <slot>
+        <nav>
+            <ul class="flex gap-5">
+                <li><Link href="/" title="Go to home page">Home</Link></li>
+                <li><Link href="/map" title="Go to map page">Map</Link></li>
+                <li><Link href="/about" title="Go to about page">About</Link></li>
+            </ul>
+        </nav>
+    </slot>
+</footer>
