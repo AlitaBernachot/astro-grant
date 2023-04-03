@@ -1,15 +1,43 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import {Content as AboutUs} from '../content/about-us.md';
+import {Content as About} from '../content/about.md';
+import ThumbnailArticle from "../components/ThumbnailArticle.astro";
 ---
 
 <MainLayout title="About">
-	<p>Dragée wafer lemon drops carrot cake cake wafer danish halvah. Soufflé cake wafer candy canes sweet roll lemon drops. Biscuit candy cookie dragée jelly-o pastry gummies cake. Marshmallow gummi bears sweet wafer cookie. Jelly beans topping caramels tart oat cake sweet powder. Ice cream bear claw jelly-o gummies lollipop cotton candy donut liquorice. Tiramisu bonbon ice cream caramels pie. Sugar plum wafer gummi bears powder gummies marshmallow. Donut cupcake icing donut cupcake danish chupa chups pastry. Ice cream donut oat cake caramels sugar plum soufflé. Ice cream pie gingerbread sugar plum shortbread halvah. Tart jelly bear claw tootsie roll sesame snaps shortbread biscuit.</p>
-	<AboutUs></AboutUs>
-</MainLayout>
+	<div class="bg-white py-24 sm:py-32">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<h1 class="text-6xl py-14">About Astro</h1>
 
-<style>
-	p {
-		color: pink;
-	}
-</style>
+		  <div class="mx-auto max-w-2xl lg:mx-0">
+			<About />
+		  </div>
+
+		  <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+			<ThumbnailArticle>
+				<p>
+					Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.
+				</p>
+			</ThumbnailArticle>
+
+			<ThumbnailArticle>
+				<p>
+					Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.
+				</p>
+			</ThumbnailArticle>
+
+			<ThumbnailArticle>
+				<p>
+					Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.
+				</p>
+			</ThumbnailArticle>
+
+			<ThumbnailArticle>
+				<p>
+					Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.
+				</p>
+			</ThumbnailArticle>
+		  </div>
+		</div>
+	</div>	
+</MainLayout>

@@ -4,12 +4,53 @@ import Link from "../components/common/Link.vue";
 
 <footer>
     <slot>
-        <nav>
-            <ul class="flex gap-5">
-                <li><Link href="/" title="Go to home page">Home</Link></li>
-                <li><Link href="/map" title="Go to map page">Map</Link></li>
-                <li><Link href="/about" title="Go to about page">About</Link></li>
-            </ul>
-        </nav>
+        <div class="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
+            <div class="grid grid-cols-2 gap-x-8">
+            
+                <div class="group relative text-base sm:text-sm">
+                    ...
+                </div>
+            
+                <div class="group relative text-base sm:text-sm">
+                    ...
+                </div>
+            
+            </div>
+            <div class="col-start-2 row-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm">
+            
+                <nav>
+                    <p class="font-medium text-gray-900">The C2C Grant</p>
+                    <ul role="list" aria-labelledby="Clothing-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                        
+                        <li class="flex">
+                            <a href="/" class="hover:text-gray-800">Home</a>
+                        </li>
+                        
+                        <li class="flex">
+                            <a href="/map" class="hover:text-gray-800">Showcase</a>
+                        </li>
+                        
+                        <li class="flex">
+                            <a href="/about" class="hover:text-gray-800">About</a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            
+                <div>
+                    <p class="font-medium text-gray-900">Built with</p>
+                    <ul role="list" aria-labelledby="Accessories-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                        
+                        <li>Astro.build</li>
+                        <li>TailwindCSS</li>
+                        <li>Vuejs</li>
+                        <li>Vite</li>
+                        
+                    </ul>
+                </div>
+            
+            </div>
+        </div>
+
     </slot>
 </footer>

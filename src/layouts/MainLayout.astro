@@ -41,10 +41,14 @@ const { title } = Astro.props;
 	</head>
 	<body class="font-sans antialiased text-gray-600 min-h-full flex flex-col [overflow-anchor:none]">
 		<HeaderLayout></HeaderLayout>
-		<h1 class="text-xl text-cyan-600">{title}</h1>
 		<slot>
-            Default text
-        </slot>
-		<FooterLayout></FooterLayout>
+			<div class="container mx-auto px-8 mt-10">
+				<h1 class="text-xl text-cyan-600">{title}</h1>
+				Default text
+			</div>
+		</slot>
+		<div class="container mx-auto px-8 mt-10">
+			<FooterLayout class="container mx-auto px-8"></FooterLayout>
+		</div>
 	</body>
 </html>

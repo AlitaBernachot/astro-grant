@@ -1,13 +1,13 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import CategoryFilter from "../components/common/CategoryFilter.vue";
 ---
 
 <MainLayout title="Map">
-	<main class="flex w-full h-full">
-		<section class="mx-auto">Catalog</section>
-		<section class="">
-			<div id="map" class="h-[700px] w-[700px]"></div>
-		</section>
+	<main>
+		<CategoryFilter client:load>
+			<div id="map" class="h-[700px] w-[800px]"></div>
+		</CategoryFilter>
 	</main>
 </MainLayout>
 
