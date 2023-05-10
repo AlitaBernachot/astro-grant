@@ -1,10 +1,12 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import CategoryFilter from "../components/common/CategoryFilter.vue";
+import LayerTree from "../components/common/LayerTree.vue";
 ---
 
 <MainLayout title="Map">
-	<main>
+  <main>
+    <LayerTree client:load></LayerTree>
 		<CategoryFilter client:load>
 			<div id="map" class="h-[700px] w-[800px]"></div>
 		</CategoryFilter>
@@ -16,9 +18,34 @@ import CategoryFilter from "../components/common/CategoryFilter.vue";
 	import Map from "ol/Map";
 	import View from "ol/View";
 	import TileLayer from "ol/layer/Tile";
-	import XYZ from "ol/source/XYZ";
+	import VectorLayer from "ol/layer/Vector";
+import XYZ from "ol/source/XYZ";
+import GeoJSON from 'ol/format/GeoJSON.js';
+import {OSM, Vector as VectorSource} from 'ol/source.js';
+import { testLayers } from "../fixtures/testLayers";
 
-	new Map({
+var layers =  [];
+var layer;
+
+function parseTree(tree, layerList) {
+  for (layer of tree) {
+    if (layer.type === 'group') {
+      parseTree(layer.children)
+    }
+    else {
+      layers.push(
+        new VectorLayer({
+          source: new VectorSource({
+            features: new GeoJSON().readFeatures(layer.geojson),
+          }),
+        })
+      )
+    }
+    console.log(layer.name)
+  }
+}
+parseTree(testLayers.children, layers);
+const map = new Map({
 		target: "map",
 		layers: [
 			new TileLayer({
@@ -26,10 +53,12 @@ import CategoryFilter from "../components/common/CategoryFilter.vue";
 					url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
 				}),
 			}),
+          ...layers,
 		],
 		view: new View({
 			center: [0, 0],
 			zoom: 2,
 		}),
-	});
+});
+export {map}
 </script>

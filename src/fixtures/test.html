@@ -1,0 +1,25 @@
+<body>
+  <div>
+  </div>
+</body>
+<script type="module"> 
+import {testLayers} from './testLayers.js'
+console.log(testLayers);
+function insertInto(node, tree) {
+  var content = document.createElement("div");
+  content.textContent = tree.label
+  node.appendChild(content);
+  if (tree && tree.children) {
+    var sublist = document.createElement("ul");
+    for (let child of tree.children) {
+      var listitem = document.createElement("li");
+      insertInto(listitem, child);
+      sublist.appendChild(listitem);
+    }
+    node.appendChild(sublist);
+  }
+}
+var doc = document.getElementsByTagName("div")[0]
+insertInto(doc, testLayers);
+// doc.textContent = testLayers
+</script>
