@@ -1,0 +1,16 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import {Content as Documentation} from '../content/documentation.md';
+---
+
+<MainLayout title="Documentation">
+	<div class="bg-white py-24 sm:py-32">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<h1 class="text-6xl py-14">Documentation</h1>
+
+		  <div class="mx-auto max-w-2xl lg:mx-0">
+			<Documentation />
+		  </div>
+		</div>
+	</div>	
+</MainLayout>

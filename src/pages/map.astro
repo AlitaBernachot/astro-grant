@@ -1,12 +1,13 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import CategoryFilter from "../components/common/CategoryFilter.vue";
+// import Alllayers from "../components/Alllayers.astro";
 import LayerTree from "../components/common/LayerTree.vue";
 ---
 
 <MainLayout title="Map">
-  <main>
-    <LayerTree client:load></LayerTree>
+  	<main>
+		<LayerTree client:load tree=testLayers></LayerTree>
 		<CategoryFilter client:load>
 			<div id="map" class="h-[700px] w-[800px]"></div>
 		</CategoryFilter>
@@ -19,10 +20,10 @@ import LayerTree from "../components/common/LayerTree.vue";
 	import View from "ol/View";
 	import TileLayer from "ol/layer/Tile";
 	import VectorLayer from "ol/layer/Vector";
-import XYZ from "ol/source/XYZ";
-import GeoJSON from 'ol/format/GeoJSON.js';
-import {OSM, Vector as VectorSource} from 'ol/source.js';
-import { testLayers } from "../fixtures/testLayers";
+	import XYZ from "ol/source/XYZ";
+	import GeoJSON from 'ol/format/GeoJSON.js';
+	import {Vector as VectorSource} from 'ol/source.js';
+	import { testLayers } from "../fixtures/testLayers";
 
 var layers =  [];
 var layer;
@@ -41,10 +42,10 @@ function parseTree(tree, layerList) {
         })
       )
     }
-    console.log(layer.name)
   }
 }
 parseTree(testLayers.children, layers);
+
 const map = new Map({
 		target: "map",
 		layers: [
@@ -60,5 +61,4 @@ const map = new Map({
 			zoom: 2,
 		}),
 });
-export {map}
 </script>

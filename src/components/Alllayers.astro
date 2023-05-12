@@ -1,0 +1,17 @@
+---
+import { testLayers } from "../fixtures/testLayers";
+---
+
+<all-layers data-layers={ testLayers }>
+    <LayerTree client:load tree=testLayers></LayerTree>
+</all-layers>
+
+<script>
+class AllLayers extends HTMLElement {
+    constructor() {
+        super();
+    }
+}
+
+customElements.define('all-layers', AllLayers);
+</script>

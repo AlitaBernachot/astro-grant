@@ -4,8 +4,8 @@
 function generateTestData(n_levels, n_per_level, spread, subtree_factor) {
   let fulltree = {label: 'root', type: 'group'}
   let total_nodes = fillSubtree(fulltree, 0, 0, n_levels, n_per_level, spread, subtree_factor)
-  console.log(total_nodes)
   fulltree.n_items = total_nodes
+  
   return fulltree
 }
 
@@ -15,7 +15,7 @@ function fillSubtree(tree, item_offset, current_level, n_levels, n_per_level, sp
   const n_max = n_per_level * spread
   const random_position = Math.random()
   const n_items = Math.floor(n_min + random_position * (n_max - n_min))
-  console.log(n_items)
+  
   if (n_items > 0) {
     let child_nodes = [];
     for (let i = 0; i < n_items; i++) {
@@ -72,95 +72,4 @@ function createVector(level, item) {
 
 // const testLayers = generateTestData(5, 5, 2, .8)
 const testLayers = generateTestData(4, 3, 1.5, .5)
-
-const testLayers1 = {
-  label: 'root',
-  children: [
-    {
-      label: 'group1',
-      type: 'group',
-      children: [
-        {
-        label: 'layer1',
-          type: 'vector',
-          geojson: {
-            'type': 'FeatureCollection',
-            'crs': {
-              'type': 'label',
-              'properties': {
-                'label': 'EPSG:3857',
-              },
-            },
-            'features': [
-              {
-                'type': 'Polygon',
-                'coordinates': [
-                  [
-                    [1e6, -6e6],
-                    [3e6, -6e6],
-                    [2e6, -4e6],
-                    [1e6, -6e6],
-                  ],
-                ],
-              },
-            ],
-          },
-        },
-        {
-          label: 'layer2',
-          type: 'vector',
-          geojson: {
-            'type': 'FeatureCollection',
-            'crs': {
-              'type': 'label',
-              'properties': {
-                'label': 'EPSG:3857',
-              },
-            },
-            'features': [
-              {
-                'type': 'Polygon',
-                'coordinates': [
-                  [
-                    [4e6, -6e6],
-                    [6e6, -6e6],
-                    [5e6, -4e6],
-                    [4e6, -6e6],
-                  ],
-                ],
-              },
-            ],
-          },
-        },
-      ],
-    },
-    {
-      label: 'layer2',
-      type: 'vector',
-      geojson: {
-        'type': 'FeatureCollection',
-        'crs': {
-          'type': 'label',
-          'properties': {
-            'label': 'EPSG:3857',
-          },
-        },
-        'features': [
-          {
-            'type': 'Polygon',
-            'coordinates': [
-              [
-                [4e6, 6e6],
-                [6e6, 6e6],
-                [5e6, 4e6],
-                [4e6, 6e6],
-              ],
-            ],
-          },
-        ],
-      },
-    },
-  ],
-}
-
-export {testLayers};
+export {testLayers}

@@ -1,21 +1,16 @@
 
 <script setup lang="ts">
-import {map} from '../../pages/map.astro'
-import {testLayers} from '../../fixtures/testLayers'
-import { ref, Ref } from 'vue'
 import TreeItem from './TreeItem.vue'
+import { testLayers as tree } from "../../fixtures/testLayers";
 
-function visitoggle() {
-  visi.value = !visi.value
-  console.log("hello")
-}
-const ll = ref(testLayers);
-
+const props = defineProps<{
+  tree: any
+}>()
 </script>
 
 <template>
-  <!-- {{testLayers}} -->
-  <TreeItem :tree="testLayers">
+  <TreeItem :tree="tree">
   </TreeItem>
-  Number of nodes: {{ testLayers.n_items }}
+
+  Number of layers: {{ tree.n_items }}
 </template>
