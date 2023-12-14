@@ -5,11 +5,12 @@ import { testLayers as tree } from "../../fixtures/testLayers";
 
 const props = defineProps<{
   tree: any
+  level: text
 }>()
 </script>
 
 <template>
-  <TreeItem :tree="tree">
+  <TreeItem :tree="tree" :level="level">
   </TreeItem>
 
   Number of layers: {{ tree.n_items }}

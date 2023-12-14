@@ -6,12 +6,14 @@ import LayerTree from "../components/common/LayerTree.vue";
 ---
 
 <MainLayout title="Map">
-  	<main>
-		<LayerTree client:load tree=testLayers></LayerTree>
-		<CategoryFilter client:load>
-			<div id="map" class="h-[700px] w-[800px]"></div>
-		</CategoryFilter>
-	</main>
+  <main>
+	<CategoryFilter>
+      <div slot="catalog">
+	    <LayerTree tree=testLayers level=0></LayerTree>
+      </div>
+	  <div id="map" class="h-[700px] w-[800px]"></div>
+	</CategoryFilter>
+  </main>
 </MainLayout>
 
 <script>

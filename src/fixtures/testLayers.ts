@@ -5,6 +5,7 @@ function generateTestData(n_levels, n_per_level, spread, subtree_factor) {
   let fulltree = {label: 'root', type: 'group'}
   let total_nodes = fillSubtree(fulltree, 0, 0, n_levels, n_per_level, spread, subtree_factor)
   fulltree.n_items = total_nodes
+
   
   return fulltree
 }
@@ -25,12 +26,12 @@ function fillSubtree(tree, item_offset, current_level, n_levels, n_per_level, sp
       var shall_have_subtree = subtree_rand < subtree_factor
       // if ((current_level < n_levels) && (Math.random() < subtree_factor)) {
       if (has_more_levels && shall_have_subtree) {
-        cur_tree.label = `l${current_level}-g${i}`
+        cur_tree.label = `layer${current_level}-group${i}`
         cur_tree.type = 'group'
         n_total += fillSubtree(cur_tree, n_total + item_offset, current_level+1, n_levels, n_per_level, spread, subtree_factor)
       }
       else {
-        cur_tree.label = `l${current_level}-i${i}`
+        cur_tree.label = `l${current_level}-item${i}`
         cur_tree.type = 'vector'
         cur_tree.geojson = createVector(current_level, n_total + item_offset)
         n_total += 1;
